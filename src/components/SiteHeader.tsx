@@ -10,7 +10,7 @@ export function SiteHeader() {
   return (
     <header className="sticky top-0 z-30 border-b border-border/70 bg-background/85 backdrop-blur">
       <div className="mx-auto grid max-w-6xl grid-cols-[minmax(0,1fr)_auto] items-center gap-4 px-4 py-3 sm:flex sm:justify-between">
-        <Link to="/" className="flex min-w-0 items-center gap-3" aria-label="APK Math, accueil">
+        <Link to="/" className="flex min-w-0 items-center gap-3" aria-label="Math Terminal, accueil">
           <span
             aria-hidden
             className="grid h-10 w-10 shrink-0 place-items-center rounded-xl bg-primary font-display text-lg font-bold text-primary-foreground"
@@ -19,7 +19,7 @@ export function SiteHeader() {
           </span>
           <span className="min-w-0">
             <span className="block truncate font-display text-lg font-bold leading-tight">
-              APK Math
+              Math Terminal
             </span>
             <span className="block truncate text-xs text-muted-foreground">
               Maths de Terminale
@@ -56,7 +56,7 @@ export function SiteFooter() {
     <footer className="border-t border-border/70 bg-card/50">
       <div className="mx-auto max-w-6xl px-4 py-8 text-sm text-muted-foreground">
         <p>
-          APK Math — réviser les mathématiques de Terminale à son rythme, sans stress.
+          Math Terminal — réviser les mathématiques de Terminale à son rythme, sans stress.
         </p>
       </div>
     </footer>
