@@ -260,6 +260,192 @@ export const chapitres: Chapitre[] = [
       },
     ],
   },
+  {
+    slug: "nombres-complexes",
+    titre: "Nombres complexes",
+    domaine: "Analyse",
+    resume:
+      "Forme algébrique, forme trigonométrique, module, argument et équations du second degré.",
+    duree: "50 min",
+    rappels: [
+      "Un nombre complexe s'écrit z = a + ib avec (a, b) ∈ ℝ².",
+      "Le module |z| = √(a² + b²) et l'argument arg(z) mesure l'angle avec l'axe réel.",
+      "i² = −1 ; les racines carrées d'un nombre négatif sont des imaginaires purs.",
+    ],
+    blocs: [
+      {
+        type: "formule",
+        contenu: "z = r(cos θ + i sin θ) = r e^(iθ)",
+        legende: "Forme trigonométrique et exponentielle.",
+      },
+      {
+        type: "formule",
+        contenu: "|z × z′| = |z| × |z′|     arg(z × z′) = arg(z) + arg(z′)",
+        legende: "Propriétés du module et de l'argument.",
+      },
+      {
+        type: "exemple",
+        titre: "Exemple guidé",
+        contenu:
+          "z = 1 + i√3 a pour module √(1 + 3) = 2 et pour argument π/3. On peut donc écrire z = 2 e^(iπ/3).",
+      },
+    ],
+  },
+  {
+    slug: "integration",
+    titre: "Intégration",
+    domaine: "Analyse",
+    resume:
+      "Intégrale d'une fonction continue positive, primitives, aire sous la courbe et intégration par parties.",
+    duree: "50 min",
+    rappels: [
+      "L'intégrale d'une fonction positive représente une aire sous la courbe.",
+      "Si F est une primitive de f, alors ∫ₐᵇ f(x) dx = F(b) − F(a).",
+      "L'intégration par parties vient de la formule (uv)′.",
+    ],
+    blocs: [
+      {
+        type: "formule",
+        contenu: "∫ₐᵇ f(x) dx = [F(x)]ₐᵇ = F(b) − F(a)",
+        legende: "Primitive et calcul d'intégrale.",
+      },
+      {
+        type: "formule",
+        contenu: "∫ u′v = uv − ∫ uv′",
+        legende: "Intégration par parties.",
+      },
+      {
+        type: "exemple",
+        titre: "Exemple guidé",
+        contenu:
+          "∫₀¹ x e^x dx : on pose u′ = e^x et v = x, donc ∫₀¹ x e^x dx = [x e^x]₀¹ − ∫₀¹ e^x dx = e − (e − 1) = 1.",
+      },
+    ],
+  },
+  {
+    slug: "equations-differentielles",
+    titre: "Équations différentielles",
+    domaine: "Analyse",
+    resume:
+      "Résolution d'équations différentielles linéaires du premier ordre avec ou sans second membre.",
+    duree: "40 min",
+    rappels: [
+      "Une équation différentielle relie une fonction à ses dérivées.",
+      "y′ = ay a pour solutions y(x) = C e^(ax) avec C ∈ ℝ.",
+      "On trouve une solution particulière, puis on ajoute la solution générale de l'équation homogène.",
+    ],
+    blocs: [
+      {
+        type: "formule",
+        contenu: "y′ = ay + b  ⟹  y(x) = C e^(ax) − b/a",
+        legende: "Solutions de y′ = ay + b (a ≠ 0).",
+      },
+      {
+        type: "texte",
+        contenu:
+          "Pour y′ = ay + g(x), on cherche une solution particulière de la même forme que le second membre g(x).",
+      },
+      {
+        type: "exemple",
+        titre: "Exemple guidé",
+        contenu:
+          "Résoudre y′ = 2y + 4. L'équation homogène y′ = 2y donne C e^(2x). Une solution particulière constante est y = −2. La solution générale est y(x) = C e^(2x) − 2.",
+      },
+    ],
+  },
+  {
+    slug: "variables-aleatoires",
+    titre: "Variables aléatoires discrètes",
+    domaine: "Probabilités",
+    resume:
+      "Loi d'une variable aléatoire, espérance, variance et écart-type d'une distribution discrète.",
+    duree: "40 min",
+    rappels: [
+      "Une variable aléatoire associe un nombre à chaque issue d'une expérience aléatoire.",
+      "L'espérance E(X) est la valeur moyenne pondérée par les probabilités.",
+      "La variance mesure la dispersion autour de l'espérance.",
+    ],
+    blocs: [
+      {
+        type: "formule",
+        contenu: "E(X) = Σ xᵢ pᵢ     V(X) = E(X²) − [E(X)]²",
+        legende: "Espérance et variance d'une variable discrète.",
+      },
+      {
+        type: "texte",
+        contenu:
+          "Pour une loi binomiale B(n ; p), on retrouve E(X) = np et V(X) = np(1 − p).",
+      },
+      {
+        type: "exemple",
+        titre: "Exemple guidé",
+        contenu:
+          "X prend les valeurs 1, 2 et 5 avec probabilités 0,5, 0,3 et 0,2. E(X) = 1×0,5 + 2×0,3 + 5×0,2 = 2,1.",
+      },
+    ],
+  },
+  {
+    slug: "echantillonnage",
+    titre: "Échantillonnage",
+    domaine: "Probabilités",
+    resume:
+      "Fluctuation d'échantillonnage, intervalle de fluctuation et intervalle de confiance pour une proportion.",
+    duree: "35 min",
+    rappels: [
+      "La proportion observée dans un échantillon varie d'un échantillon à l'autre.",
+      "Pour n assez grand, la fréquence appartient à [p − 1/√n ; p + 1/√n] dans 95 % des cas.",
+      "L'intervalle de confiance au seuil 95 % est [f − 1/√n ; f + 1/√n].",
+    ],
+    blocs: [
+      {
+        type: "formule",
+        contenu: "I_f = [f − 1/√n ; f + 1/√n]",
+        legende: "Intervalle de confiance à 95 % pour une proportion.",
+      },
+      {
+        type: "texte",
+        contenu:
+          "On utilise l'intervalle de confiance pour estimer une proportion inconnue dans une population à partir d'un échantillon.",
+      },
+      {
+        type: "exemple",
+        titre: "Exemple guidé",
+        contenu:
+          "Sur n = 400 personnes, 52 % sont favorables. L'intervalle de confiance à 95 % est [0,52 − 1/20 ; 0,52 + 1/20] = [0,47 ; 0,57].",
+      },
+    ],
+  },
+  {
+    slug: "orthogonalite-distance",
+    titre: "Orthogonalité et distance",
+    domaine: "Géométrie",
+    resume:
+      "Projections orthogonales, distance d'un point à un plan et à une droite dans l'espace.",
+    duree: "40 min",
+    rappels: [
+      "La distance d'un point à un plan est la longueur du segment perpendiculaire au plan passant par le point.",
+      "Le projeté orthogonal est le point du plan le plus proche du point donné.",
+      "Deux droites de l'espace peuvent être orthogonales sans être sécantes.",
+    ],
+    blocs: [
+      {
+        type: "formule",
+        contenu: "d(A, 𝒫) = |ax_A + by_A + cz_A + d| / √(a² + b² + c²)",
+        legende: "Distance du point A au plan d'équation ax + by + cz + d = 0.",
+      },
+      {
+        type: "texte",
+        contenu:
+          "Pour montrer qu'une droite est perpendiculaire à un plan, il suffit de prouver qu'elle est orthogonale à deux droites non parallèles du plan.",
+      },
+      {
+        type: "exemple",
+        titre: "Exemple guidé",
+        contenu:
+          "La distance du point A(1 ; 2 ; −1) au plan 2x − y + 2z + 3 = 0 est |2 − 2 − 2 + 3| / √(4 + 1 + 4) = 1/3.",
+      },
+    ],
+  },
 ];
 
 export const getChapitre = (slug: string) => chapitres.find((c) => c.slug === slug);
