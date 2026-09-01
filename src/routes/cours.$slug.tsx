@@ -13,11 +13,11 @@ export const Route = createFileRoute("/cours/$slug")({
   head: ({ loaderData }) => {
     if (!loaderData) {
       return {
-        meta: [{ title: "Chapitre indisponible — APK Math" }, { name: "robots", content: "noindex" }],
+        meta: [{ title: "Chapitre indisponible — Math Terminal" }, { name: "robots", content: "noindex" }],
       };
     }
     const { chapitre } = loaderData;
-    const titre = `${chapitre.titre} — Cours de Terminale | APK Math`;
+    const titre = `${chapitre.titre} — Cours de Terminale | Math Terminal`;
     return {
       meta: [
         { title: titre },

@@ -6,13 +6,13 @@ import { chapitres } from "@/data/cours";
 export const Route = createFileRoute("/cours/")({
   head: () => ({
     meta: [
-      { title: "Cours de maths Terminale par chapitre — APK Math" },
+      { title: "Cours de maths Terminale par chapitre — Math Terminal" },
       {
         name: "description",
         content:
           "Toutes les fiches de cours de mathématiques de Terminale : limites, dérivation, exponentielle, logarithme, suites, probabilités et géométrie dans l'espace.",
       },
-      { property: "og:title", content: "Cours de maths Terminale par chapitre — APK Math" },
+      { property: "og:title", content: "Cours de maths Terminale par chapitre — Math Terminal" },
       {
         property: "og:description",
         content: "Fiches de cours claires avec rappels, formules et exemples guidés.",

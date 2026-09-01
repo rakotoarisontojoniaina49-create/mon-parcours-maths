@@ -7,13 +7,13 @@ import { exercices } from "@/data/exercices";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "APK Math — Cours et exercices de maths en Terminale" },
+      { title: "Math Terminal — Cours et exercices de maths en Terminale" },
       {
         name: "description",
         content:
           "Réviser les mathématiques de Terminale : fiches de cours par chapitre, formules essentielles et exercices interactifs corrigés et expliqués.",
       },
-      { property: "og:title", content: "APK Math — Cours et exercices de maths en Terminale" },
+      { property: "og:title", content: "Math Terminal — Cours et exercices de maths en Terminale" },
       {
         property: "og:description",
         content:
@@ -39,7 +39,7 @@ function Accueil() {
               Les maths de Terminale, enfin claires et à ton rythme
             </h1>
             <p className="mt-4 max-w-2xl text-lg leading-relaxed text-muted-foreground">
-              APK Math réunit des fiches de cours lisibles, les formules à connaître et des
+              Math Terminal réunit des fiches de cours lisibles, les formules à connaître et des
               exercices interactifs corrigés pas à pas. Tu te trompes ? On t'explique pourquoi,
               sans jugement.
             </p>
