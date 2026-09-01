@@ -94,10 +94,15 @@ function Accueil() {
                 t: "3. Je comprends mes erreurs",
                 d: "Correction immédiate avec l'explication détaillée du raisonnement.",
               },
-            ].map((c) => (
+            ].map((c, i) => (
               <div key={c.t} className="rounded-2xl border border-border bg-card p-5 shadow-sm">
                 <c.icon className="h-6 w-6 text-primary" aria-hidden />
-                <h3 className="mt-3 text-lg font-semibold">{c.t}</h3>
+                <h3
+                  className="mt-3 text-lg font-semibold"
+                  style={i === 0 ? { color: "#2563eb" } : undefined}
+                >
+                  {c.t}
+                </h3>
                 <p className="mt-1.5 text-sm leading-relaxed text-muted-foreground">{c.d}</p>
               </div>
             ))}
