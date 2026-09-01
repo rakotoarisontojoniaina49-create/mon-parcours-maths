@@ -16,8 +16,8 @@ export function ExerciceCard({
 }: {
   exercice: Exercice;
   numero: number;
-  chapitreTitre?: string;
-  onResultat?: (id: string, correct: boolean) => void;
+  chapitreTitre?: string | undefined;
+  onResultat?: ((id: string, correct: boolean) => void) | undefined;
 }) {
   const groupName = useId();
   const [choix, setChoix] = useState<number | null>(null);

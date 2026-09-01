@@ -10,33 +10,70 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as CoursRouteImport } from './routes/cours'
+import { Route as ExercicesRouteImport } from './routes/exercices'
+import { Route as CoursIndexRouteImport } from './routes/cours.index'
+import { Route as CoursSlugRouteImport } from './routes/cours.$slug'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const CoursRoute = CoursRouteImport.update({
+  id: '/cours',
+  path: '/cours',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ExercicesRoute = ExercicesRouteImport.update({
+  id: '/exercices',
+  path: '/exercices',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CoursIndexRoute = CoursIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => CoursRoute,
+} as any)
+const CoursSlugRoute = CoursSlugRouteImport.update({
+  id: '/$slug',
+  path: '/$slug',
+  getParentRoute: () => CoursRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/cours': typeof CoursRouteWithChildren
+  '/exercices': typeof ExercicesRoute
+  '/cours/$slug': typeof CoursSlugRoute
+  '/cours/': typeof CoursIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/exercices': typeof ExercicesRoute
+  '/cours/$slug': typeof CoursSlugRoute
+  '/cours': typeof CoursIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/cours': typeof CoursRouteWithChildren
+  '/exercices': typeof ExercicesRoute
+  '/cours/$slug': typeof CoursSlugRoute
+  '/cours/': typeof CoursIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths: '/' | '/cours' | '/exercices' | '/cours/$slug' | '/cours/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to: '/' | '/exercices' | '/cours/$slug' | '/cours'
+  id: '__root__' | '/' | '/cours' | '/exercices' | '/cours/$slug' | '/cours/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  CoursRoute: typeof CoursRouteWithChildren
+  ExercicesRoute: typeof ExercicesRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +85,53 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/cours': {
+      id: '/cours'
+      path: '/cours'
+      fullPath: '/cours'
+      preLoaderRoute: typeof CoursRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/exercices': {
+      id: '/exercices'
+      path: '/exercices'
+      fullPath: '/exercices'
+      preLoaderRoute: typeof ExercicesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/cours/': {
+      id: '/cours/'
+      path: '/'
+      fullPath: '/cours/'
+      preLoaderRoute: typeof CoursIndexRouteImport
+      parentRoute: typeof CoursRoute
+    }
+    '/cours/$slug': {
+      id: '/cours/$slug'
+      path: '/$slug'
+      fullPath: '/cours/$slug'
+      preLoaderRoute: typeof CoursSlugRouteImport
+      parentRoute: typeof CoursRoute
+    }
   }
 }
 
+interface CoursRouteChildren {
+  CoursSlugRoute: typeof CoursSlugRoute
+  CoursIndexRoute: typeof CoursIndexRoute
+}
+
+const CoursRouteChildren: CoursRouteChildren = {
+  CoursSlugRoute: CoursSlugRoute,
+  CoursIndexRoute: CoursIndexRoute,
+}
+
+const CoursRouteWithChildren = CoursRoute._addFileChildren(CoursRouteChildren)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  CoursRoute: CoursRouteWithChildren,
+  ExercicesRoute: ExercicesRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

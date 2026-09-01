@@ -5,11 +5,11 @@ import { SiteFooter, SiteHeader } from "@/components/SiteHeader";
 import { chapitres } from "@/data/cours";
 import { exercices } from "@/data/exercices";
 
-type Recherche = { chapitre?: string };
+type Recherche = { chapitre?: string | undefined };
 
 export const Route = createFileRoute("/exercices")({
   validateSearch: (search: Record<string, unknown>): Recherche => ({
-    chapitre: typeof search.chapitre === "string" ? search.chapitre : undefined,
+    chapitre: typeof search["chapitre"] === "string" ? (search["chapitre"] as string) : undefined,
   }),
   head: () => ({
     meta: [
@@ -109,7 +109,7 @@ function PageExercices() {
                 key={e.id}
                 exercice={e}
                 numero={i + 1}
-                chapitreTitre={chapitres.find((c) => c.slug === e.chapitre)?.titre}
+                chapitreTitre={chapitres.find((c) => c.slug === e.chapitre)?.titre ?? ""}
                 onResultat={(id, correct) =>
                   setResultats((r) => ({ ...r, [id]: correct }))
                 }
