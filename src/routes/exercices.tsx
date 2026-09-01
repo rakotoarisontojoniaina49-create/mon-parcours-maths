@@ -13,13 +13,13 @@ export const Route = createFileRoute("/exercices")({
   }),
   head: () => ({
     meta: [
-      { title: "Exercices de maths Terminale corrigés — APK Math" },
+      { title: "Exercices de maths Terminale corrigés — Math Terminal" },
       {
         name: "description",
         content:
           "Entraîne-toi avec des exercices interactifs de Terminale : QCM et réponses à saisir, validation immédiate et explication détaillée de la correction.",
       },
-      { property: "og:title", content: "Exercices de maths Terminale corrigés — APK Math" },
+      { property: "og:title", content: "Exercices de maths Terminale corrigés — Math Terminal" },
       {
         property: "og:description",
         content: "Exercices interactifs avec correction immédiate et explication détaillée.",
