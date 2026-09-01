@@ -188,6 +188,49 @@ export const exercices: Exercice[] = [
     explication:
       "Les coefficients de x, y et z donnent directement un vecteur normal : n⃗(2 ; −1 ; 3).",
   },
+  {
+    id: "lim-3",
+    chapitre: "limites-et-continuite",
+    niveau: "Moyen",
+    type: "saisie",
+    enonce: "Quelle est la limite quand x tend vers 0 de (e^x − 1) / x ?",
+    reponses: ["1"],
+    explication:
+      "Il s'agit du taux d'accroissement de la fonction exponentielle en 0 : (e^x − e^0)/(x − 0) tend vers e^0 = 1.",
+  },
+  {
+    id: "der-3",
+    chapitre: "derivation-et-convexite",
+    niveau: "Facile",
+    type: "qcm",
+    enonce:
+      "Si f est deux fois dérivable et f″(x) > 0 sur un intervalle, que peut-on dire de la courbe de f ?",
+    options: ["Convexe", "Concave", "Décroissante", "Majorée"],
+    bonneReponse: 0,
+    explication:
+      "f″ > 0 signifie que f′ est croissante, donc la courbe de f est convexe (tournée vers le haut) sur cet intervalle.",
+  },
+  {
+    id: "suite-3",
+    chapitre: "suites-numeriques",
+    niveau: "Facile",
+    type: "saisie",
+    enonce:
+      "Une suite géométrique a pour premier terme v₀ = 8 et pour raison 1/2. Que vaut v₄ ?",
+    reponses: ["0,5", "0.5", "1/2"],
+    explication: "vₙ = v₀ × qⁿ donc v₄ = 8 × (1/2)⁴ = 8/16 = 0,5.",
+  },
+  {
+    id: "proba-3",
+    chapitre: "probabilites-conditionnelles",
+    niveau: "Facile",
+    type: "saisie",
+    enonce:
+      "On lance un dé équilibré. Quelle est la probabilité d'obtenir un nombre pair ? (donne le résultat décimal)",
+    reponses: ["0,5", "0.5", "1/2"],
+    explication:
+      "Les résultats favorables sont 2, 4 et 6 sur 6 faces possibles, donc la probabilité est 3/6 = 0,5.",
+  },
 ];
 
 export const normaliser = (s: string) =>
